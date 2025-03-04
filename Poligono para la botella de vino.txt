@@ -1,0 +1,33 @@
+/* Botella de vino */
+.wine-bottle {
+  width: 7rem;
+  height: 23rem;
+  clip-path: polygon(
+      50% 0%,   /* Parte superior del cuello */
+      45% 5%,   /* Cuello de la botella */
+      40% 10%,  /* Cuello de la botella */
+      35% 15%,  /* Cuello de la botella */
+      30% 20%,  /* Cuello de la botella */
+      25% 25%,  /* Cuello de la botella */
+      20% 30%,  /* Comienzo del cuerpo de la botella */
+      15% 35%,  /* Parte media del cuerpo */
+      10% 40%,  /* Parte media del cuerpo */
+      5% 45%,   /* Parte media del cuerpo */
+      0% 50%,   /* Parte más ancha de la botella */
+      0% 90%,   /* Parte más ancha de la base */
+      5% 95%,   /* Base */
+      95% 95%,  /* Base */
+      100% 90%, /* Parte más ancha de la base */
+      100% 50%, /* Parte más ancha de la botella */
+      95% 45%,  /* Parte media del cuerpo */
+      90% 40%,  /* Parte media del cuerpo */
+      85% 35%,  /* Parte media del cuerpo */
+      80% 30%,  /* Comienzo del cuerpo de la botella */
+      75% 25%,  /* Cuello de la botella */
+      70% 20%,  /* Cuello de la botella */
+      65% 15%,  /* Cuello de la botella */
+      60% 10%,  /* Cuello de la botella */
+      55% 5%,   /* Cuello de la botella */
+      50% 0%    /* Parte superior del cuello */
+  );
+}

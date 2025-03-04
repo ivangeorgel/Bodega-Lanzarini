@@ -1,0 +1,51 @@
+Agregar MongoDB al PATH del sistema te permite ejecutar los comandos `mongod` y `mongo` desde cualquier ubicación en tu terminal o símbolo del sistema. Esto simplifica mucho el trabajo, ya que no necesitas navegar a la carpeta específica de instalación de MongoDB cada vez que deseas iniciar el servidor o usar el cliente MongoDB.
+
+### ¿Qué es el PATH?
+
+El PATH es una variable de entorno en los sistemas operativos que especifica un conjunto de directorios donde se encuentran los ejecutables. Cuando escribes un comando en la terminal, el sistema busca el ejecutable correspondiente en los directorios listados en el PATH.
+
+### Ventajas de agregar MongoDB al PATH
+
+1. **Conveniencia:** Puedes ejecutar `mongod` y `mongo` directamente desde cualquier directorio sin tener que especificar la ruta completa.
+2. **Eficiencia:** Facilita la gestión de MongoDB, especialmente cuando trabajas con scripts o configuraciones automatizadas.
+3. **Flexibilidad:** Puedes iniciar y detener el servidor MongoDB desde cualquier ubicación en tu sistema.
+
+### Cómo Agregar MongoDB al PATH en Windows
+
+1. **Encontrar la carpeta bin de MongoDB:**
+   - Normalmente, se encuentra en `C:\Program Files\MongoDB\Server\<versión>\bin`.
+
+2. **Agregar la ruta al PATH:**
+   - **Windows 10 y 11:**
+     1. Presiona `Windows + S` y escribe "variable de entorno" y selecciona "Editar las variables de entorno del sistema".
+     2. En la ventana de Propiedades del sistema, haz clic en "Variables de entorno...".
+     3. En la sección "Variables del sistema", busca y selecciona la variable `Path` y haz clic en "Editar...".
+     4. Haz clic en "Nuevo" y pega la ruta a la carpeta `bin` de MongoDB, por ejemplo:
+        ```
+        C:\Program Files\MongoDB\Server\<versión>\bin
+        ```
+     5. Haz clic en "Aceptar" para cerrar todas las ventanas.
+
+3. **Verificar la configuración:**
+   - Abre una nueva terminal o símbolo del sistema y escribe `mongod --version` y `mongo --version` para asegurarte de que MongoDB esté accesible desde cualquier ubicación.
+
+### Cómo Agregar MongoDB al PATH en macOS o Linux
+
+1. **Encontrar la carpeta bin de MongoDB:**
+   - La ruta depende de cómo instalaste MongoDB, pero podría ser algo como `/usr/local/mongodb/bin`.
+
+2. **Agregar la ruta al PATH:**
+   - Abre una terminal.
+   - Edita tu archivo de configuración de shell (como `.bashrc`, `.bash_profile`, `.zshrc`, etc.) añadiendo la siguiente línea:
+     ```sh
+     export PATH=/usr/local/mongodb/bin:$PATH
+     ```
+   - Guarda el archivo y cierra la terminal.
+   - Abre una nueva terminal y ejecuta `source ~/.bashrc` o `source ~/.zshrc` (dependiendo de tu shell) para cargar la nueva configuración del PATH.
+
+3. **Verificar la configuración:**
+   - Escribe `mongod --version` y `mongo --version` en la terminal para asegurarte de que MongoDB esté accesible desde cualquier ubicación.
+
+### Resumen
+
+Agregar MongoDB al PATH de tu sistema simplifica mucho el proceso de trabajo con MongoDB, permitiéndote ejecutar comandos de MongoDB desde cualquier ubicación en tu terminal. Esto es especialmente útil para el desarrollo y la administración de bases de datos.

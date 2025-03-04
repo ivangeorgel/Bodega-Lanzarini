@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Esta pagina mostrara la web de la bodega Lanzarini" />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./images/Logo.jpg" type="image/png">
+
+
+    <script defer src="./js/index.js"></script>
+    <script src="cart-script.js"></script>
+
+
+    <title>Bodega y viñedos Lanzarini</title>
+</head>
+
+<body class="Vinos">
+    <header>
+
+
+        <nav class="nav">
+            <a href="./index.html"><img src="./images/Logo.jpg" alt="" class="imagen1"></a>
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <div class="bar2"></div>
+                <div class="bar2"></div>
+                <div class="bar2"></div>
+            </div>
+            <ul class="lista" id="lista">
+                <li class="item-lista"><a id="barraNavegacion" href="./Nosotros.html">nosotros</a></li>
+                <li class="item-lista"><a id="barraNavegacion" href="./Vinos.html">vinos</a></li>
+                <li class="item-lista"><a id="barraNavegacion" href="./Contactos.html">contactos</a></li>
+            </ul>
+            <div class="btn-checkout">
+                <a class="boton-carrito" href="/cart.html">&#128722;</a>
+
+            </div>
+        </nav>
+        
+    </header>
+
+
+
+    <main>
+        <div class="main-container">
+            <!-- Contenedor que contiene al grafico y las caracteristicas -->
+            <div class="content-grafico-caract">
+                <!-- Caracteristicas de los vinos -->
+
+                <!-- Magneta -->
+                <div class="float-left">
+                    <p class="chart-titulo-caract">datos acerca del vino</p>
+
+                    <div class="container_description">
+                        <svg class="descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M8.89 17.198a2 2 0 1 0-2.051-3.433 2 2 0 0 0 2.052 3.433ZM13.183 14.634A2 2 0 1 0 11.13 11.2a2 2 0 0 0 2.052 3.434ZM12.66 19.606a2 2 0 1 0-2.053-3.434 2 2 0 0 0 2.052 3.434ZM17.474 12.068a2 2 0 1 0-2.052-3.433 2 2 0 0 0 2.052 3.433ZM16.951 17.041a2 2 0 1 0-2.052-3.434 2 2 0 0 0 2.052 3.434ZM17.287 21.5a2 2 0 1 0-2.052-3.433 2 2 0 0 0 2.052 3.433ZM10.874 4.172c.618.75.612 1.776-.014 2.29-.625.515-1.633.324-2.25-.427-.805-.977-1.477-4.103-1.477-4.103s2.938 1.262 3.741 2.24Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M14.233 4c-1.846.983-5.26 4.017-4.15 8.29"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M12.38 5.7c-.056.706.421 2.255 2.77 2.798"></path>
+                        </svg><span class="icon-description">Uvas: Malbec.</span>
+                    </div>
+                    <div class="container_description">
+                        <svg class="descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="m2.338 19.107 8.76-5.847a8.726 8.726 0 0 1 9.744.038c.1.068.168.175.187.296l.455 3.005c.153 1.01.23 1.514.122 1.918a2 2 0 0 1-1.131 1.316C20.092 20 19.58 20 18.56 20H2.609a.488.488 0 0 1-.271-.893Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M21.43 16.069v0a6.927 6.927 0 0 0-8.43-.516l-2 1.352M6.853 11c-1.21 0-1.304-.001-1.35-.003C4.11 10.927 3 9.816 3 8.455c0-1.406 1.183-2.546 2.642-2.546.307 0 .601.05.875.143C6.99 4.852 8.195 4 9.606 4M18.797 12.075a4 4 0 1 0-4.527-.651M13 6l-1.5-1M13 9.5 9 11M21 11l1.5 1M20.5 6 23 4.5M16.78 1.5v3">
+                            </path>
+                        </svg><span class="icon-description">Region: Argentina/Mendoza/Zona Este.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M13.765 9.585S15 10.554 15 12v5.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V12c0-1.446 1.235-2.415 1.235-2.415.6-.502.578-1.061.578-1.061V5h2.374v3.524s-.021.559.578 1.061Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="m2.551 5.675 1.836 12.237c.217 1.45.326 2.176.68 2.72a3 3 0 0 0 1.275 1.1C6.934 22 7.667 22 9.134 22h5.732c1.467 0 2.2 0 2.792-.269a3.001 3.001 0 0 0 1.275-1.098c.354-.545.463-1.27.68-2.721L21.45 5.675c.19-1.267.285-1.9.095-2.393a2 2 0 0 0-.88-1.022c-.459-.26-1.1-.26-2.38-.26H5.716c-1.28 0-1.921 0-2.38.26a2 2 0 0 0-.88 1.022c-.19.493-.095 1.126.095 2.393Z">
+                            </path>
+                        </svg><span class="icon-description">Estilo de vino: vino tinto</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M11.353 7.48S13 8.864 13 10.93V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10.93c0-2.066 1.647-3.45 1.647-3.45.799-.718.77-1.516.77-1.516V2h3.165v3.964s-.028.798.77 1.516ZM9.5 12.5l-4 4m10-14h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm3.5 4h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM20 2l-5 5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg><span class="icon-description">Contenido de alcohol: 13,5.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M2.42 10.713c-.136-.215-.205-.323-.243-.49a1.173 1.173 0 0 1 0-.446c.038-.167.107-.275.243-.49C3.545 7.505 6.895 3 12 3s8.455 4.505 9.58 6.287c.137.215.205.323.243.49.028.125.028.322 0 .446-.038.167-.107.274-.243.49C20.455 12.495 17.105 17 12 17s-8.455-4.505-9.58-6.287Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-4 6.9c0 1.16-.895 2.1-2 2.1s-2-.94-2-2.1C4 18.39 6 15 6 15s2 3.39 2 4.9Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg><span class="icon-description">Alérgenos: Contiene sulfitos.</span>
+                    </div>
+                </div>
+                <!-- Magneta -->
+                <!-- Grafico -->
+                <div class="chart">
+                    <p class="chart-titulo-caract">¿qué sabor tiene el vino?</p>
+                    <div class="chart-item">
+                        <span>Ligero</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 90%;"></div>
+                        </div>
+                        <span>Poderoso</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Suave</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 53%;"></div>
+                        </div>
+                        <span>Tánico</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Seco</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 31%;"></div>
+                        </div>
+                        <span>Dulce</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Débil</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 58%;"></div>
+                        </div>
+                        <span>Ácido</span>
+                    </div>
+
+
+
+                </div>
+
+                <!-- Montecepas caracteristicas -->
+                <div class="float-left-2">
+                    <p class="chart-titulo-caract">datos acerca del vino.</p>
+
+                    <div class="container_description">
+                        <svg class="descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M8.89 17.198a2 2 0 1 0-2.051-3.433 2 2 0 0 0 2.052 3.433ZM13.183 14.634A2 2 0 1 0 11.13 11.2a2 2 0 0 0 2.052 3.434ZM12.66 19.606a2 2 0 1 0-2.053-3.434 2 2 0 0 0 2.052 3.434ZM17.474 12.068a2 2 0 1 0-2.052-3.433 2 2 0 0 0 2.052 3.433ZM16.951 17.041a2 2 0 1 0-2.052-3.434 2 2 0 0 0 2.052 3.434ZM17.287 21.5a2 2 0 1 0-2.052-3.433 2 2 0 0 0 2.052 3.433ZM10.874 4.172c.618.75.612 1.776-.014 2.29-.625.515-1.633.324-2.25-.427-.805-.977-1.477-4.103-1.477-4.103s2.938 1.262 3.741 2.24Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M14.233 4c-1.846.983-5.26 4.017-4.15 8.29"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M12.38 5.7c-.056.706.421 2.255 2.77 2.798"></path>
+                        </svg><span class="icon-description">Uvas: Cabernet Sauvignon.</span>
+                    </div>
+                    <div class="container_description">
+                        <svg class="descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="m2.338 19.107 8.76-5.847a8.726 8.726 0 0 1 9.744.038c.1.068.168.175.187.296l.455 3.005c.153 1.01.23 1.514.122 1.918a2 2 0 0 1-1.131 1.316C20.092 20 19.58 20 18.56 20H2.609a.488.488 0 0 1-.271-.893Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M21.43 16.069v0a6.927 6.927 0 0 0-8.43-.516l-2 1.352M6.853 11c-1.21 0-1.304-.001-1.35-.003C4.11 10.927 3 9.816 3 8.455c0-1.406 1.183-2.546 2.642-2.546.307 0 .601.05.875.143C6.99 4.852 8.195 4 9.606 4M18.797 12.075a4 4 0 1 0-4.527-.651M13 6l-1.5-1M13 9.5 9 11M21 11l1.5 1M20.5 6 23 4.5M16.78 1.5v3">
+                            </path>
+                        </svg><span class="icon-description">Region: Argentina/Mendoza/Zona Este.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M13.765 9.585S15 10.554 15 12v5.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V12c0-1.446 1.235-2.415 1.235-2.415.6-.502.578-1.061.578-1.061V5h2.374v3.524s-.021.559.578 1.061Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="m2.551 5.675 1.836 12.237c.217 1.45.326 2.176.68 2.72a3 3 0 0 0 1.275 1.1C6.934 22 7.667 22 9.134 22h5.732c1.467 0 2.2 0 2.792-.269a3.001 3.001 0 0 0 1.275-1.098c.354-.545.463-1.27.68-2.721L21.45 5.675c.19-1.267.285-1.9.095-2.393a2 2 0 0 0-.88-1.022c-.459-.26-1.1-.26-2.38-.26H5.716c-1.28 0-1.921 0-2.38.26a2 2 0 0 0-.88 1.022c-.19.493-.095 1.126.095 2.393Z">
+                            </path>
+                        </svg><span class="icon-description">Estilo de vino: vino blano.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M11.353 7.48S13 8.864 13 10.93V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10.93c0-2.066 1.647-3.45 1.647-3.45.799-.718.77-1.516.77-1.516V2h3.165v3.964s-.028.798.77 1.516ZM9.5 12.5l-4 4m10-14h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm3.5 4h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM20 2l-5 5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg><span class="icon-description">Contenido de alcohol: 11,9.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M2.42 10.713c-.136-.215-.205-.323-.243-.49a1.173 1.173 0 0 1 0-.446c.038-.167.107-.275.243-.49C3.545 7.505 6.895 3 12 3s8.455 4.505 9.58 6.287c.137.215.205.323.243.49.028.125.028.322 0 .446-.038.167-.107.274-.243.49C20.455 12.495 17.105 17 12 17s-8.455-4.505-9.58-6.287Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-4 6.9c0 1.16-.895 2.1-2 2.1s-2-.94-2-2.1C4 18.39 6 15 6 15s2 3.39 2 4.9Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg><span class="icon-description">Alérgenos: Contiene sulfitos.</span>
+                    </div>
+                </div>
+                <!-- Grafico -->
+                <div class="chart">
+                    <p class="chart-titulo-caract">¿qué sabor tiene el vino?</p>
+
+                    <div class="chart-item">
+                        <span>Ligero</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 68%;"></div>
+                        </div>
+                        <span>Poderoso</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Suave</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 45%;"></div>
+                        </div>
+                        <span>Tánico</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Seco</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 25%;"></div>
+                        </div>
+                        <span>Dulce</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Débil</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 60%;"></div>
+                        </div>
+                        <span>Ácido</span>
+                    </div>
+
+
+
+                </div>
+
+                <!-- Sediento -->
+                <div class="float-left-3">
+                    <p class="chart-titulo-caract">datos acerca del vino</p>
+                    <div class="container_description">
+
+                        <svg class="descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M8.89 17.198a2 2 0 1 0-2.051-3.433 2 2 0 0 0 2.052 3.433ZM13.183 14.634A2 2 0 1 0 11.13 11.2a2 2 0 0 0 2.052 3.434ZM12.66 19.606a2 2 0 1 0-2.053-3.434 2 2 0 0 0 2.052 3.434ZM17.474 12.068a2 2 0 1 0-2.052-3.433 2 2 0 0 0 2.052 3.433ZM16.951 17.041a2 2 0 1 0-2.052-3.434 2 2 0 0 0 2.052 3.434ZM17.287 21.5a2 2 0 1 0-2.052-3.433 2 2 0 0 0 2.052 3.433ZM10.874 4.172c.618.75.612 1.776-.014 2.29-.625.515-1.633.324-2.25-.427-.805-.977-1.477-4.103-1.477-4.103s2.938 1.262 3.741 2.24Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M14.233 4c-1.846.983-5.26 4.017-4.15 8.29"></path>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M12.38 5.7c-.056.706.421 2.255 2.77 2.798"></path>
+                        </svg><span class="icon-description">Uvas: Malbec bonarda.</span>
+                    </div>
+                    <div class="container_description">
+                        <svg class="descripcion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="m2.338 19.107 8.76-5.847a8.726 8.726 0 0 1 9.744.038c.1.068.168.175.187.296l.455 3.005c.153 1.01.23 1.514.122 1.918a2 2 0 0 1-1.131 1.316C20.092 20 19.58 20 18.56 20H2.609a.488.488 0 0 1-.271-.893Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M21.43 16.069v0a6.927 6.927 0 0 0-8.43-.516l-2 1.352M6.853 11c-1.21 0-1.304-.001-1.35-.003C4.11 10.927 3 9.816 3 8.455c0-1.406 1.183-2.546 2.642-2.546.307 0 .601.05.875.143C6.99 4.852 8.195 4 9.606 4M18.797 12.075a4 4 0 1 0-4.527-.651M13 6l-1.5-1M13 9.5 9 11M21 11l1.5 1M20.5 6 23 4.5M16.78 1.5v3">
+                            </path>
+                        </svg><span class="icon-description">Region: Argentina/Mendoza/Zona Este.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M13.765 9.585S15 10.554 15 12v5.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V12c0-1.446 1.235-2.415 1.235-2.415.6-.502.578-1.061.578-1.061V5h2.374v3.524s-.021.559.578 1.061Z">
+                            </path>
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="m2.551 5.675 1.836 12.237c.217 1.45.326 2.176.68 2.72a3 3 0 0 0 1.275 1.1C6.934 22 7.667 22 9.134 22h5.732c1.467 0 2.2 0 2.792-.269a3.001 3.001 0 0 0 1.275-1.098c.354-.545.463-1.27.68-2.721L21.45 5.675c.19-1.267.285-1.9.095-2.393a2 2 0 0 0-.88-1.022c-.459-.26-1.1-.26-2.38-.26H5.716c-1.28 0-1.921 0-2.38.26a2 2 0 0 0-.88 1.022c-.19.493-.095 1.126.095 2.393Z">
+                            </path>
+                        </svg><span class="icon-description">Estilo de vino: vino tinto</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M11.353 7.48S13 8.864 13 10.93V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10.93c0-2.066 1.647-3.45 1.647-3.45.799-.718.77-1.516.77-1.516V2h3.165v3.964s-.028.798.77 1.516ZM9.5 12.5l-4 4m10-14h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm3.5 4h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM20 2l-5 5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg><span class="icon-description">Contenido de alcohol: 13,1.</span>
+                    </div>
+                    <div class="container_description"> <svg class="descripcion" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M2.42 10.713c-.136-.215-.205-.323-.243-.49a1.173 1.173 0 0 1 0-.446c.038-.167.107-.275.243-.49C3.545 7.505 6.895 3 12 3s8.455 4.505 9.58 6.287c.137.215.205.323.243.49.028.125.028.322 0 .446-.038.167-.107.274-.243.49C20.455 12.495 17.105 17 12 17s-8.455-4.505-9.58-6.287Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-4 6.9c0 1.16-.895 2.1-2 2.1s-2-.94-2-2.1C4 18.39 6 15 6 15s2 3.39 2 4.9Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg><span class="icon-description">Alérgenos: Contiene sulfitos.</span>
+                    </div>
+                </div>
+                <!-- Grafico -->
+                <div class="chart">
+                    <p class="chart-titulo-caract">¿qué sabor tiene el vino?</p>
+
+                    <div class="chart-item">
+                        <span>Ligero</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 78%;"></div>
+                        </div>
+                        <span>Poderoso</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Suave</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 55%;"></div>
+                        </div>
+                        <span>Tánico</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Seco</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 40%;"></div>
+                        </div>
+                        <span>Dulce</span>
+                    </div>
+                    <div class="chart-item">
+                        <span>Débil</span>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 66%;"></div>
+                        </div>
+                        <span>Ácido</span>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+        <!-- CARDS -->
+        <div class="container-card">
+
+            <div class="card">
+                <img class="claseDeVino" src="./images/Magneta.png" alt="Vino 1">
+                <h3>MAGNETA</h3>
+                <p class="vinos-precio">Precio: $7.000</p>
+                <!-- <p>Descripción:ffff</p> -->
+
+                <button class="add-to-cart" data-id="1">Agregar al carrito</button>
+            </div>
+
+            <!-- Montecepas----------------------- -->
+            <div class="card">
+                <img class="claseDeVino" src="./images/Montecepas2.jpg" alt="Vino 1">
+                <h3>MONTECEPAS</h3>
+                <p class="vinos-precio">Precio: $6.800</p>
+                <!-- <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                <button class="add-to-cart" data-id="2">Agregar al carrito</button>
+            </div>
+            <!-- Sediento -->
+            <div class="card">
+                <img class="claseDeVino" src="./images/sediento2.png" alt="Vino 1">
+                <h3>SEDIENTO</h3>
+                <p class="vinos-precio">Precio: $8.000</p>
+                <!-- <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                <button class="add-to-cart" data-id="3">Agregar al carrito</button>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </main>
+    <!-- Footer corregido -->
+<footer class="footer">
+    <div class="footer-titulo-lanzarini">
+        <!-- <div class="Subtitulo-top-footer">bodegas y</div>
+        <div class="Titulo-footer">LANZARINI</div>
+        <div class="Subtitulo-bottom-footer">viñedos</div> -->
+        <img class="marca-footer" src="./images/marca-05.png" alt="">
+    </div>
+
+    <div class="footer-content">
+        <div class="iconFooter">
+            <figure>
+                <!-- <a href="https://www.facebook.com/bodegalanzarini?locale=es_LA"><img
+                        src="./icons/facebook-blanco.png" alt="Facebook" class="iconos2"></a>
+                <a href="https://www.instagram.com/bodegalanzarini/"><img src="./icons/instagram blanco.png"
+                        alt="Instagram" class="iconos2"></a>
+                <a href="https://x.com/BodegaLanzarini?t=5YaHzGkBzKN4i7UpdHktNw&s=08 "><img
+                        src="./icons/x-blanco2.jpg" alt="x" class="iconos2"> </a> -->
+                        <a href="https://www.facebook.com/bodegalanzarini?locale=es_LA"><img src="./icons/icon-04.png" alt="Facebook" class="iconos2"></a>
+                        <a href="https://www.instagram.com/bodegalanzarini/"><img src="./icons/icon-03.png" alt="Instagram" class="iconos2"></a>
+                        <a href="https://x.com/BodegaLanzarini?t=5YaHzGkBzKN4i7UpdHktNw&s=08 "><img src="./icons/icon-02.png" alt="x" class="iconos2"></a>
+            </figure>
+        </div>
+
+        <h1 class="info-footer"><span class="material-symbols-outlined">call</span>0263 444-2291</h1>
+        <h2 class="info-footer"><span class="material-symbols-outlined">mail</span>arlanzarini@lanzarini.com</h2>
+        <h3 class="info-footer"><span class="material-symbols-outlined">location_on</span>San Isidro 231, Rivadavia, Argentina</h3>
+    </div>
+</footer>
+
+</body>
+
+
+</html>

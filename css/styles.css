@@ -1,0 +1,1552 @@
+/* Configuraciones generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-family: Copperplate Gothic heavy;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.imagen1 {
+  display: flex;
+  justify-content: left;
+  width: 7rem;
+  height: 7rem;
+}
+
+/* Barra de navegacion */
+
+.nav {
+  background-color: rgba(31, 26, 23, 255);
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  flex-direction: row;
+  z-index: 1000;
+  position: relative;
+}
+
+.lista {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  z-index: 1000;
+
+}
+
+.lista .item-lista {
+  display: grid;
+  width: 1rem 1rem;
+  padding-left: 1rem;
+  z-index: 1000;
+}
+
+.nav ul li a {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  width: 8rem;
+  height: 7rem;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+#barraNavegacion:hover {
+  background-color: rgb(148, 100, 76);
+  height: 7rem;
+}
+
+/* Fondos de pantallas */
+/* .background-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 0;
+  
+}
+
+.active {
+  opacity: 1;
+} */
+
+
+/* 
+.content {
+  position: absolute;
+  top: 22rem;
+  left: 51.5rem;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  
+} */
+
+/* Tamaño del texto */
+/* .Titulo {
+  font-size: 6rem;
+  
+  color: white;
+}
+
+.Subtitulo-top {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  color: white;
+}
+.Subtitulo-bottom {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content:center;
+  color: white;
+} */
+
+
+.content {
+  position: absolute;
+  top: 22rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.Titulo {
+  font-size: 6rem;
+  color: white;
+  position: relative;
+}
+
+/* Lineas del titulo */
+
+.Titulo::before,
+.Titulo::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black; /* Cambia esto al color que prefieras */
+  left: 0;
+}
+
+.Titulo::before {
+  top: -10px; /* Ajusta esta distancia según lo necesites */
+}
+
+.Titulo::after {
+  bottom: -10px; /* Ajusta esta distancia según lo necesites */
+}
+
+.Subtitulo-top, .Subtitulo-bottom {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  color: white;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+
+.imagen-titulo-lanzarini {
+  /* width: 70rem; */
+  height: 23rem;
+}
+
+/*Boton de la pagina principal*/
+
+/* 
+.butt {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 26rem;
+  opacity: 0.9;
+  
+}
+
+
+
+
+#nextBtn {
+  position: relative;
+  padding: 1rem 1rem;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 0.5rem;
+  transition: all 0.6s ease;
+  z-index: 2;
+  border-radius: 1rem;
+}
+
+#nextBtn {
+  border: 3px solid rebeccapurple;
+  overflow: hidden;
+}
+
+#nextBtn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rebeccapurple;
+  z-index: -2
+}
+
+#nextBtn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  left: 0;
+  bottom: -150%;
+  border-radius: 30%;
+  background-color: rgb(148, 100, 76);
+  z-index: -1;
+}
+
+#nextBtn:hover::before {
+  animation: nextBtn 2s linear both;
+}
+
+@keyframes nextBtn {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    bottom: 100px;
+    transform: rotate(360deg);
+  }
+} */
+
+
+
+
+
+/* Iconos */
+.iconos {
+  /* background-color: white; */
+  border-radius: 0.5rem;
+  /* width: 2.5rem;
+  height: 2.5rem; */
+  /* width: 3rem; */
+  height: 3rem;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 2rem;
+  grid-template-rows: 20rem 20rem 20rem;
+  position: relative;
+  /* top: 10rem; */
+  bottom: 37rem;
+  left: 2rem;
+  border-radius: 1.5rem;
+}
+
+
+
+
+/* formulario */
+.form {
+  width: 100%;
+}
+
+
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin-top: 8rem;
+}
+
+/* label {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  flex-basis: 30rem; 
+} */
+
+label {
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 30rem;
+  grid-template-rows: 5rem 5rem 5rem 30rem;
+  gap: 1rem;
+
+}
+
+input {
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+span.Formulario {
+  color: white;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.button-formulario {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+
+/* Estilos de los inputs */
+
+
+
+.input {
+  border: 2px solid #e8e8e8;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #212121;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Century Gothic';
+
+ }
+ 
+ .input:focus {
+  outline-color: white;
+  background-color: #212121;
+  color: #e8e8e8;
+  box-shadow: 5px 5px #888888;
+  font-family: 'Century Gothic';
+
+ }
+
+
+/* Estilo botones */
+
+.button-formulario {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.button-formulario span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  font-family: 'Century Gothic';
+}
+
+.button-formulario svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.button-formulario:hover svg {
+  transform: translateX(0);
+}
+
+.button-formulario:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: white;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.button-formulario:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+/* Historia Nosotros */
+
+.content-nosotros {
+  position: relative;
+  top: 7rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+  margin-top: 7rem;
+}
+.Titulo-nosotros::before,
+.Titulo-nosotros::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black; 
+  left: 0;
+}
+
+.Titulo-nosotros::before {
+  top: 42px; /* Ajusta esta distancia según lo necesites */
+}
+
+.Titulo-nosotros::after {
+  bottom: 42px; /* Ajusta esta distancia según lo necesites */
+}
+
+.Titulo-nosotros {
+  font-size: 7rem;
+  color: black;
+}
+.Subtitulo-top-nosotros, .Subtitulo-bottom-nosotros {
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  color: black;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+
+.familiaLanzarini {
+  width: 55rem;
+  height: 40rem;
+  margin-top: 5rem;
+}
+
+/* p{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+} */
+.contenido p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.container2 {
+  width: 100rem;
+  display: flex;
+  justify-content: center;
+  /* Centra horizontalmente */
+  align-items: center;
+  /* Centra verticalmente */
+}
+
+
+.contenido {
+  width: 80rem;
+  padding: 20px;
+  /* Espaciado interior */
+
+}
+
+.container p {
+  padding: 2rem 2rem;
+}
+
+figcaption {
+  /* color: white; */
+  font-size: 1rem;
+  margin-bottom: 5rem;
+  font-family: 'Century Gothic';
+  font-weight: 700;
+}
+
+
+/* Fondos de cada pagina */
+body.Home {
+  /* background-image: url('/images/viñedosoriginal-transformed.jpeg'); */
+  background-image: url('/images/fondoo-04.png');
+  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el contenedor */
+}
+body.Nosotros {
+  /* background-image: url('/images/patronDeCorcho.webp'); */
+  /* background-color: #626467; */
+  /* background-color: #bd8f70; */
+  background-image: url('/images/fondo-papel2.avif');
+}
+
+body.Contactos {
+  /* background-image: url('/images/patronDeCorcho.webp'); */
+  background-color: #626467;
+}
+
+body.Vinos {
+  background-image: url('/images/fondo\ 2-08.png');
+  /* background-color: #fff; */
+  /* background-color: #EFEFEF; */
+  /* background-color: #626467; */
+  
+
+  
+}
+
+body.cart-body {
+  background-image: url('/images/fondo\ 2-08.png');
+  /* background-color: #626467; */
+}
+
+
+/* Footer */
+.footer {
+
+  height: 30rem;
+  /* background-color: rgba(31, 26, 23, 255); */
+  background-color: #272626;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* padding: 1rem 0; */
+}
+
+
+
+.footer-titulo-lanzarini {
+  margin-top: 3rem;
+}
+.Titulo-footer {
+  font-size: 3.5rem;
+  color: white;
+  
+}
+/* Lineas del footer */
+.Titulo-footer::before,
+.Titulo-footer::after {
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 22.1rem;
+  height: 2px;
+  background-color:white; /* Cambia esto al color que prefieras */
+  /* margin-bottom: 0.8rem;
+  margin-top: 0.8rem; */
+}
+
+.Titulo-footer::before {
+  top: -10px; /* Ajusta esta distancia según lo necesites */
+}
+
+.Titulo-footer {
+  bottom: -10px; /* Ajusta esta distancia según lo necesites */
+}
+.Subtitulo-top-footer, .Subtitulo-bottom-footer {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Div que engloba todo */
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* width: 60rem; */
+  color: white;
+  width: 100%;
+  height: 8rem;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: row;
+}
+figure {
+  margin-bottom: 8rem;
+}
+
+.footer-content h1,
+.footer-content h2 {
+  margin: 0 1rem;
+  /* Espacio entre los elementos */
+}
+
+.footer-content h1 span,
+.footer-content h2 span,
+.footer-content h3 span {
+  margin-right: 0.5rem;
+  /* Espacio entre el icono y el texto */
+}
+
+
+
+
+
+/* Iconos de la barra de navegacion */
+.iconos2 {
+  display: flex;
+  flex-direction: row;
+  border-radius: 3rem;
+  width: 3.5rem;
+  height: 3rem;
+  margin: 0.4rem;
+
+  /* position: relative;
+  top: 10rem;
+  left: 8rem;
+   */
+   
+}
+
+/* Titulo del footer */
+.marca-footer {
+  width: 35rem;
+}
+
+.info-footer {
+  font-family: 'Century Gothic';
+}
+
+
+/* Carrito */
+
+
+form.Contact {
+  width: 20rem;
+  display: flex;
+  align-items: end;
+}
+
+.btn-checkout {
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  /* float: right; */
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.boton-carrito {
+  font-size: 4rem;
+  /* color: white;
+  background-color: white; */
+}
+
+.btn-checkout:hover {
+  box-shadow: 0.4rem 0.4rem 1rem ligthgray;
+  transition: 0.17s ease-in;
+}
+
+.btn-checkout:active {
+  transition: 0.3s ease-out;
+  filter: grayscale(100%)
+}
+
+.form-checkout {
+  background-color: rgba(139, 0, 139, 0.102);
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 80%;
+}
+
+/* Cards */
+
+.container-card {
+  gap: 19rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: right;
+  /* width: 40rem; */
+  width: 42rem;
+  /*float: right; */
+  margin-bottom: 7rem;
+
+}
+.vinos-precio{
+    font-family: 'Century Gothic';
+}
+
+/* En esta card hay parte de la configuracion del boton agregar carrito */
+
+.card {
+  
+  border: 1px solid rgba(211, 211, 211, 0.384);
+  border-radius: 0.8rem;
+  height: 38rem;
+  width: 25rem;
+  /* background-color: white; */
+  margin-bottom: 5rem;
+  margin-left: 4rem;
+  margin-top: 4rem;
+  /* display: flex; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+  position: relative;
+  /* box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1); */
+  cursor: pointer;
+  /* transition: all 120ms; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 0.5em;
+  padding-bottom: 3.4em;
+  
+}
+
+.card:hover {
+  transition: .5s ease-in;
+  box-shadow: 0.5rem 2rem 6rem rgba(31, 26, 23, 255);
+}
+
+.card .card-image {
+
+  font-size: 6rem;
+  display: flex;
+  width: 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+}
+
+.card .card-name {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  display: block;
+  width: 1fr;
+}
+
+.card .card-price {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  display: block;
+  width: 1fr;
+}
+
+/* .card .card-button {
+  text-align: center;
+  display: block;
+}
+.button-add {
+  border-radius: 1rem;
+  outline: 1rem solid blueviolet !important;
+}
+.card .card-button button {
+  margin-top: 1rem;
+  font-size: 2rem !important;
+}
+.card .card-button .disabled {
+  background-color: lightgray !important;
+  color: whitesmoke !important;
+} */
+
+.claseDeVino {
+  /* width: 7rem; */
+  height: 23rem;
+}
+
+
+/* Color de "No hay vinos" */
+#cart-items {
+  color: white;
+  /* display: flex;
+  justify-content: center; */
+  font-family: 'Century Gothic'
+}
+
+
+/* Boton de comprar vinos */
+#reset-cart {
+  /* display: flex;
+  justify-content: center; */
+}
+
+.card-image img {
+  width: 50rem;
+  /* Ajusta el ancho al 100% del contenedor */
+  height: 50rem;
+  /* Altura automática para mantener la proporción de la imagen */
+}
+
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  /* Columna para el nombre y precio, columna para la cantidad y descripción */
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.cart-item h3 {
+  margin: 0;
+  
+}
+
+.cart-item p {
+  margin: 0;
+  font-family: 'Century Gothic';
+}
+
+.cart-item p:last-of-type {
+  font-style: italic;
+  color: white;
+  font-family: 'Century Gothic';
+}
+
+
+
+/* .card {
+  position: relative;
+  width: 11.875em;
+  height: 16.5em;
+  box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 120ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 0.5em;
+  padding-bottom: 3.4em;
+} */
+
+/* Boton agragar carrito */
+
+.add-to-cart {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00AC7C;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 80ms, bottom 80ms;
+  cursor: pointer;
+  font-family: 'Century Gothic'
+}
+
+.card:hover .add-to-cart {
+  bottom: 0.5em;
+  opacity: 1;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card:active .add-to-cart {
+  content: "Added !";
+  background: #008C5C;
+}
+
+
+
+/* Descripcion de los vinos */
+
+.descripcion {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 4rem;
+}
+
+.container_description {
+  /* display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  align-items: center; */
+  display: inline-block;
+  width: 40rem;
+}
+
+.container_description {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  color:white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* margin-top: 0.5rem; */
+  /* border-radius: 5px; */
+  display: flex;
+  align-items: center;
+}
+
+
+.float-left {
+  float: left;
+  height: 25rem;
+  width: 40rem;
+  margin-top: 4.5rem;
+}
+
+.float-left-2 {
+  float: left;
+  height: 25rem;
+  width: 40rem;
+  margin-top: 25rem;
+}
+
+.float-left-3 {
+  float: left;
+  height: 25rem;
+  width: 40rem;
+  margin-top: 25rem;
+}
+
+
+
+
+.icon-description {
+  /* font-weight: bold; */
+  font-size: 1.5rem;
+  font-family: 'Century Gothic';
+}
+
+
+/* Tamaño de los titulos del grafico y las caracteristicas */
+.chart-titulo-caract {
+  font-size: 2rem;
+  font-weight: bold;
+  /* text-decoration: underline; */
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+
+/* Grafico */
+.main-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 40rem;
+  float: right;
+}
+
+.content-grafico-caract {
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* .content-grafico-caract span{
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+} */
+.chart {
+  width: 50rem;
+  font-family: Arial, sans-serif;
+  float: left;
+  /* margin-top: 5.5rem; */
+  /* margin-top: 1rem; */
+  color:white;
+}
+
+
+.chart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chart-item span {
+  width: 20%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Century Gothic';
+}
+
+.bar-container {
+  flex-grow: 1;
+  height: 0.5rem;
+  background-color: #f3f3f3;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.bar {
+  height: 100%;
+  background-color: #b22222;
+}
+
+
+/* Arreglos para que el texto sea mas legible, texto de nosotros y cards del carrito */
+
+.contenido p {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  color: #000;
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+  /* Tipo de letra */
+  font-family: 'Century Gothic';
+  /* font-family: 'Libre Baskerville', serif; */
+  /* font-family:'Courier New', Courier, monospace;
+  font-weight:600; */
+
+  /* font-family: 'IBM Plex Mono', monospace; */
+
+}
+.contenido h1 {
+  /* font-family: 'Libre Baskerville', serif; */
+  /* font-family:'Courier New', Courier, monospace; */
+  font-family: 'Century Gothic';
+  font-weight: 700;
+  text-decoration: underline;
+}
+.contenido b {
+  /* font-family: 'Libre Baskerville', serif; */
+  font-family: 'Century Gothic';
+  font-weight: 700;
+  text-decoration: underline;
+}
+.cart-item p {
+  background-color: rgb(148, 100, 76);
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.cart-item h3 {
+  color: white;
+  font-weight: bold;
+}
+
+
+/* Galeria de imagenes y efecto de ampliacion */
+
+/* body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+} */
+
+.gallery-container {
+  width: 100%;
+  /* height: 100vh; */
+  /* max-width: 800px; */
+  text-align: center;
+  /* margin-top: 40rem; */
+  
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 32rem;
+}
+
+.thumbnail {
+  width: 13rem;
+  height: 13rem;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: transform 0.3s, border 0.3s;
+}
+
+.thumbnail:hover {
+  border: 2px solid rgba(31, 26, 23, 255);
+}
+
+.thumbnail.scale-up {
+  transform: scale(1.5);
+}
+
+
+
+
+
+
+
+
+/* MEDIAS QUERIS */
+
+
+/* Menu hamburguesa */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar2 {
+    width: 25px;
+    height: 3px;
+    margin: 4px 0;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  .lista {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgba(31, 26, 23, 255);
+    width: 100%;
+  }
+  
+  .lista a {
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .lista a:hover {
+    background-color: #ddd;
+  }
+  
+  .nav .lista {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    margin-left: 2rem;
+    /* align-items: center; */
+    justify-content: center;
+  }
+
+  .lista {
+    display: flex;
+  }
+}
+
+
+
+
+
+/* Barra de navegacion */
+@media (max-width: 768px) {
+  .nav {
+    display: flex;
+        height: auto;
+  }
+
+  .lista {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .lista .item-lista {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .nav ul li a {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-logo-nav {
+    width: 10rem;
+    height: 8rem;
+  }
+
+  .contenedor-item-lista {
+    width: 10rem;
+  }
+
+  .contenedor-imagen-item {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+/* Fondo de pantalla de home */
+
+
+
+
+@media (max-width: 768px) {
+
+  .imagen1 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .content {
+    top: 45rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 1rem;
+
+  }
+
+  .Titulo {
+    font-size: 6rem;
+  }
+
+  .Subtitulo {
+    font-size: 2.5rem;
+    justify-content: end;
+    padding: 0 1rem;
+  }
+}
+
+/* Imagen del titulo */
+
+@media (max-width:768px) {
+
+  .imagen-titulo-lanzarini {
+    margin-bottom: 35rem;
+  }
+}
+ @media (max-width:768px) {
+  body.Home {
+    background-image: url('/images/fondo-mobile-2.avif');
+  }
+  /* .content {
+    top: 50rem;
+      left: 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+    background-color: #2C2A2A;
+    
+    width: 300px;
+    height: 300px;
+    border: 10px solid #D19F71;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+  }
+  
+  .content::before, .content::after {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 2px;
+      background-color: #D19F71;
+      left: 10%;
+  }
+  
+  .content::before {
+      top: 20%;
+  }
+  .content::after {
+      top: 80%;
+  }
+  .content .Subtitulo-top, .content .Subtitulo-bottom {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      position: absolute;
+      width: 100%;
+      left: 0;
+  }
+  .content .Subtitulo-top{
+      top: 5%;
+  }
+  .content .Subtitulo-bottom {
+      bottom: 5%;
+  }
+  .content .Titulo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 48px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+   */
+} 
+
+/* Boton de la pantalla principal */
+
+/* @media (max-width: 768px) {
+  #nextBtn {
+    left: 0.6rem;
+    width: 9.5rem;
+    font-size: 0.7rem;
+  }
+
+} */
+
+@media (max-width: 768px) {
+  .butt {
+    top: 45rem;
+    padding: 1rem;
+  }
+
+  #nextBtn {
+    padding: 0.5rem 1rem;
+    letter-spacing: normal;
+    width: 11rem;
+    /* top: 32rem; */
+    left: 4rem;
+  }
+
+  /* #nextBtn::before {
+    height: 150px;
+    bottom: -100%;
+  }
+
+  #nextBtn:hover::before {
+    bottom: 50px;
+  } */
+}
+
+
+/* Iconos de redes sociales home */
+@media (max-width: 768px) {
+  .iconos {
+    left: 1.3rem;
+    /* top: 32rem; */
+    bottom: 60rem;
+    height: 4rem;
+  }
+
+}
+
+
+
+/* Media queris de NOSOTROS */
+
+
+
+
+
+/* Contenido del main */
+@media (max-width: 768px) {
+  .container2 {
+    width: 100%;
+  }
+
+  .contenido p {
+    width: 48rem;
+    font-size: 2rem;
+  }
+
+  .contenido {
+    padding-left: 7rem;
+
+  }
+}
+
+/* titulo Nosotros */
+@media (max-width: 768px){
+  .Titulo-nosotros::before {
+    top: 30px;
+  }
+  .Titulo-nosotros::after {
+    bottom: 30px;
+}
+}
+
+
+
+/* IMAGENES de nosotros */
+@media (max-width: 768px) {
+  .familiaLanzarini {
+    width: 33rem;
+    height: 30rem;
+    margin-top: 5rem;
+  }
+}
+
+
+/* FOOTER nosotros */
+
+@media only screen and (max-width: 768px) {
+.footer {
+  height: 30rem;
+}
+  .footer-content {
+    width: auto;
+  }
+
+  .footer-content h1,
+  .footer-content h2,
+  .footer-content h3 {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .material-symbols-outlined {
+    font-size: 0.2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 40%;
+    /* Reducir el tamaño de la fuente en dispositivos móviles */
+  }
+
+  /* Ajustes específicos para dispositivos móviles */
+  .header {
+    padding: 0.5rem;
+  }
+
+}
+
+
+/* Media queris Vino */
+
+@media only screen and (max-width:768px) {
+  .content-grafico-caract {
+    /* width: 40rem; */
+    padding-left: 5rem;
+  }
+
+  .container_description {
+    width: 30rem;
+  }
+
+  .chart {
+    width: 30rem;
+    padding-left: 5rem;
+  }
+
+  .container-card {
+    width: 15rem;
+  }
+
+  .card {
+    width: 15rem;
+    margin-left: 2rem;
+    margin-bottom: 30rem;
+  }
+
+  .float-left-2 {
+    margin-top: 36rem;
+    padding-left: 5rem;
+    margin-bottom: 10rem;
+  }
+
+  .float-left {
+    margin-bottom: 10rem;
+    padding-left: 5rem;
+  }
+
+  .float-left-3 {
+    margin-top: 36rem;
+    padding-left: 5rem;
+    margin-bottom: 10rem;
+  }
+
+  .add-to-cart {
+    margin-top: 3rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    
+  }
+}
+
+
+/* Media queris formulario contactos */
+
+
+
+@media only screen and (max-width:768px) {
+  .Form {
+    margin-bottom: 22rem;
+  }
+
+  .button-formulario {
+    padding: 0.5rem 1rem;
+    letter-spacing: normal;
+    width: 11rem;
+    /* top: 32rem; */
+    left: 2rem;
+  }
+}
+
+
+/* Fotos pantalla principal */
+
+@media only screen and (max-width:768px) {
+  .thumbnails {
+    margin-top: 8rem;
+    display: grid;
+    align-content: center;
+    grid-template-rows: 15rem 15rem 15rem;
+    grid-auto-flow: column;
+    grid-gap: 3rem;
+    /* height: 100vh; */
+  }
+}
+
+

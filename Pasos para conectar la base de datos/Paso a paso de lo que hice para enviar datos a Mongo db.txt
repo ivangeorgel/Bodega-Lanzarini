@@ -1,0 +1,177 @@
+Sí, claro, recuerdo lo que hemos hecho hasta ahora para ayudarte a configurar tu base de datos en MongoDB y conectar tu formulario a través de Node.js. Aquí hay un resumen detallado de todos los pasos que hemos cubierto:
+
+### 1. Configuración Inicial
+
+#### Instalación de MongoDB
+
+1. **Descargar e Instalar MongoDB:**
+   - Descargar MongoDB desde el sitio oficial.
+   - Instalarlo y asegurarse de agregarlo al PATH del sistema para poder usar `mongod` y `mongo` desde cualquier ubicación en la terminal.
+
+2. **Iniciar el Servidor MongoDB:**
+   - Ejecutar el comando `mongod` en la terminal para iniciar el servidor de MongoDB.
+
+#### Uso de MongoDB Compass
+
+- Descargar e instalar MongoDB Compass para una interfaz gráfica que te permita ver y gestionar tus bases de datos.
+
+### 2. Configuración del Servidor Node.js
+
+#### Crear el Proyecto Node.js
+
+1. **Inicializar el Proyecto Node.js:**
+   - Crear una carpeta para tu proyecto.
+   - Ejecutar `npm init -y` para crear un `package.json`.
+
+2. **Instalar Dependencias Necesarias:**
+   - Instalar `express`, `mongoose`, `body-parser` y `cors` con el comando:
+     ```sh
+     npm install express mongoose body-parser cors
+     ```
+
+#### Crear el Servidor
+
+3. **Crear el Archivo `server.js`:**
+   - Crear un archivo `server.js` en tu proyecto con el siguiente contenido:
+
+     ```js
+     const express = require('express');
+     const mongoose = require('mongoose');
+     const bodyParser = require('body-parser');
+     const cors = require('cors');
+
+     const app = express();
+     const port = 3000;
+
+     // Middleware
+     app.use(bodyParser.json());
+     app.use(cors());
+
+     // Conectar a MongoDB
+     mongoose.connect('mongodb://localhost:27017/bodega', { useNewUrlParser: true, useUnifiedTopology: true })
+         .then(() => console.log('Conectado a MongoDB'))
+         .catch(err => console.log(err));
+
+     // Definir esquema y modelo
+     const contactoSchema = new mongoose.Schema({
+         nombre: String,
+         email: String,
+         mensaje: String
+     });
+
+     const Contacto = mongoose.model('Contacto', contactoSchema);
+
+     // Ruta para recibir datos del formulario
+     app.post('/contacto', async (req, res) => {
+         const { nombre, email, mensaje } = req.body;
+
+         const nuevoContacto = new Contacto({
+             nombre,
+             email,
+             mensaje
+         });
+
+         try {
+             await nuevoContacto.save();
+             console.log('Nuevo contacto guardado:', nuevoContacto);
+             res.status(201).send('Contacto guardado');
+         } catch (err) {
+             console.log('Error al guardar contacto:', err);
+             res.status(400).send('Error al guardar contacto');
+         }
+     });
+
+     // Iniciar el servidor
+     app.listen(port, () => {
+         console.log(`Servidor corriendo en http://localhost:${port}`);
+     });
+     ```
+
+#### Iniciar el Servidor
+
+4. **Iniciar el Servidor Node.js:**
+   - Ejecutar el comando `node server.js` en la terminal para iniciar el servidor.
+
+### 3. Configuración del Formulario HTML y JavaScript
+
+#### Formulario HTML
+
+5. **Crear el Formulario en HTML:**
+   - Asegurarse de que el formulario HTML esté configurado correctamente para enviar datos al servidor:
+
+     ```html
+     <!DOCTYPE html>
+     <html lang="es">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Bodegas Lanzarini</title>
+     </head>
+     <body class="Contactos">
+         <header>
+             <!-- Tu navegación aquí -->
+         </header>
+         <main>
+             <div class="Form">
+                 <form class="Contac" id="contactForm">
+                     <label for="nombre">
+                         <span class="Formulario">CONTACTANOS</span>
+                         <input class="input" type="text" id="Nombre" placeholder="Nombre" required />
+                         <input class="input" type="email" id="Email" placeholder="Email" required />
+                         <input class="input" type="text" id="Mensaje" placeholder="Mensaje" required />
+                     </label>
+                     <button class="button-formulario" type="submit">Enviar</button>
+                 </form>
+             </div>
+         </main>
+         <footer class="footer">
+             <!-- Tu pie de página aquí -->
+         </footer>
+
+         <script>
+             document.getElementById('contactForm').addEventListener('submit', async function(event) {
+                 event.preventDefault();
+
+                 const nombre = document.getElementById('Nombre').value;
+                 const email = document.getElementById('Email').value;
+                 const mensaje = document.getElementById('Mensaje').value;
+
+                 const data = { nombre, email, mensaje };
+
+                 try {
+                     const response = await fetch('http://localhost:3000/contacto', {
+                         method: 'POST',
+                         headers: {
+                             'Content-Type': 'application/json'
+                         },
+                         body: JSON.stringify(data)
+                     });
+
+                     if (response.ok) {
+                         alert('Contacto enviado exitosamente');
+                     } else {
+                         alert('Error al enviar contacto');
+                     }
+                 } catch (error) {
+                     console.error('Error:', error);
+                     alert('Error al enviar contacto');
+                 }
+             });
+         </script>
+     </body>
+     </html>
+     ```
+
+### 4. Solución de Problemas
+
+#### Errores Comunes
+
+- **`ERR_CONNECTION_REFUSED`:** Este error puede ocurrir si el servidor no está corriendo. Asegúrate de haber iniciado el servidor con `node server.js` y verifica que no haya conflictos de puertos.
+- **Errores de Fetch:** Asegúrate de que la URL en la función `fetch` coincide con la URL y el puerto donde está corriendo tu servidor.
+
+### Verificación
+
+- **Revisar la Consola del Navegador:** Verifica los mensajes en la consola del navegador para errores adicionales.
+- **Revisar la Consola del Servidor:** Verifica los logs en la consola del servidor para asegurarte de que los datos están siendo recibidos y guardados en MongoDB.
+
+Siguiendo estos pasos deberías tener una configuración básica funcional para enviar datos desde tu formulario a MongoDB usando Node.js. Si encuentras algún problema específico, por favor proporciona más detalles para poder ayudarte mejor.

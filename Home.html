@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Esta pagina mostrara la web de la bodega Lanzarini" />
+  <meta name="robots" content="index,follow" />
+  <script src="./js/index.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="icon" href="./images/Logo.jpg" type="image/png">
+  <title>Bodegas Lanzarini</title>
+
+</head>
+
+<body class="Home">
+  <header>
+    
+    <nav class="nav">
+      <a href="./Home.html"><img src="./images/Logo.jpg" alt="" class="imagen1"></a>
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="bar2"></div>
+        <div class="bar2"></div>
+        <div class="bar2"></div>
+      </div>
+      <ul class="lista" id="lista">
+          <li class="item-lista"><a id="barraNavegacion" href="./Nosotros.html">nosotros</a></li>
+          <li class="item-lista"><a id="barraNavegacion" href="./Index.html">vinos</a></li>
+          <li class="item-lista"><a id="barraNavegacion" href="./Contactos.html">contactos</a></li>
+      </ul>
+  </nav>
+  </header>
+  <main>
+    <div class="background-slider">
+      <!-- <div class="background-slide active" style="background-image: url('./images/recorte4.png');"> -->
+        
+        <div class="background-slide active">
+          <div class="content">
+            <!-- <div class="Subtitulo-top">Bodegas y</div>
+            <div class="Titulo">LANZARINI</div>
+            <div class="Subtitulo-bottom">viñedos</div> -->
+            <img class="imagen-titulo-lanzarini" src="./images/marca-05.png" alt="">
+          </div>
+
+
+
+   <!-- <div class="background-slider">
+      <div class="background-slide active" style="background-image: url('./images/recorte4.png');">
+        <div class="content">
+          <h1 class="Titulo">LANZARINI</h1>
+          <h2 class="Subtitulo">Bodegas y viñedos</h2>
+        </div>
+      </div>
+      <div class="background-slide" style="background-image: url('./images/paisaje2.jpeg');">
+        <div class="content">
+          <h1 class="Titulo">LANZARINI</h1>
+          <h2 class="Subtitulo">Bodegas y viñedos</h2>
+        </div>
+      </div>
+      <div class="background-slide" style="background-image: url('./images/bodega_lanzarini.jpg');">
+        <div class="content">
+          <h1 class="Titulo">LANZARINI</h1>
+          <h2 class="Subtitulo">Bodegas y viñedos</h2>
+        </div>
+      </div>
+      <div class="background-slide" style="background-image: url('./images/bodega_aire-transformed.jpeg');">
+        <div class="content">
+          <h1 class="Titulo">LANZARINI</h2>
+        </div>
+      </div>
+      <div class="background-slide" style="background-image: url('./images/bodega-lanzarini-uvas.jpg');">
+        <div class="content">
+          <h1 class="Titulo">LANZARINI</h1>
+          <h2 class="Subtitulo">Bodegas y viñedos</h2>
+        </div>
+      </div>
+    </div>
+    <div class="butt">
+      <button id="nextBtn">Siguiente</button>
+    </div> -->
+<!-- Galeria dr imagenes -->
+<div class="gallery-container">
+      <!-- <div class="main-image">
+          <img id="currentImage" src="/images/Logo.jpg" alt="Imagen principal">
+      </div> -->
+      <div class="thumbnails">
+          <img class="thumbnail" src="./images/viñedosOriginal2.jpg" alt="Miniatura 1" onclick="changeImage('./images/viñedosOriginal2.jpg')" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+          <img class="thumbnail" src="./images/bodega-lanzarini-interior.jpg" alt="Miniatura 2" onclick="changeImage('./images/bodega-lanzarini-interior.jpg')" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+          <img class="thumbnail" src="./images/bodega_aire.jpg" alt="Miniatura 3" onclick="changeImage('./images/bodega_aire.jpg')" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+          <img class="thumbnail" src="./images/bodega-lanzarini-uvas.jpg" alt="Miniatura 4" onclick="changeImage('./images/bodega-lanzarini-uvas.jpg')" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+          <img class="thumbnail" src="./images/bodega_lanzarini.jpg" alt="Miniatura 5" onclick="changeImage('./images/bodega.jpg')" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+          <img class="thumbnail" src="./images/paisaje2.jpeg" alt="Miniatura 6" onclick="changeImage('./images/paisaje2.jpeg')" onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
+      </div>
+
+    
+  </div>
+
+
+</div>
+    <figure>
+      <!-- <a href="https://www.facebook.com/bodegalanzarini?locale=es_LA"><img src="./icons/facebook-blanco.png" alt="Facebook" class="iconos"></a>
+      <a href="https://www.instagram.com/bodegalanzarini/"><img src="./icons/instagram blanco.png" alt="Instagram" class="iconos"></a>
+      <a href="https://x.com/BodegaLanzarini?t=5YaHzGkBzKN4i7UpdHktNw&s=08 "><img src="./icons/x-blanco2.jpg" alt="x" class="iconos"></a> -->
+      <a href="https://www.facebook.com/bodegalanzarini?locale=es_LA"><img src="./icons/icon-04.png" alt="Facebook" class="iconos"></a>
+      <a href="https://www.instagram.com/bodegalanzarini/"><img src="./icons/icon-03.png" alt="Instagram" class="iconos"></a>
+      <a href="https://x.com/BodegaLanzarini?t=5YaHzGkBzKN4i7UpdHktNw&s=08 "><img src="./icons/icon-02.png" alt="x" class="iconos"></a>
+   
+    </figure>
+  </main>
+  <footer>
+   
+</footer>
+ 
+</body>
+
+</html>

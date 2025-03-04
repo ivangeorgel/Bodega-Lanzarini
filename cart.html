@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de la página</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/cart-script.js"></script>
+    <script src="./js/index.js"></script>
+    
+</head>
+<header>
+    <nav class="nav">
+        <a href="./index.html"><img src="./images/Logo.jpg" alt="" class="imagen1"></a>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="bar2"></div>
+          <div class="bar2"></div>
+          <div class="bar2"></div>
+        </div>
+        <ul class="lista" id="lista">
+            <li class="item-lista"><a id="barraNavegacion" href="./Nosotros.html">nosotros</a></li>
+            <li class="item-lista"><a id="barraNavegacion" href="./Vinos.html">vinos</a></li>
+            <li class="item-lista"><a id="barraNavegacion" href="./Contactos.html">contactos</a></li>
+        </ul>
+    </nav>
+</header>
+<body class="cart-body">
+    <h1>Carrito de Compras</h1>
+    <div id="cart-items"></div>
+    
+    <!-- <button  id="reset-cart" >Comprar</button> Botón para reiniciar el carrito -->
+    
+    <button class="button-formulario" id="reset-cart" type="submit">
+        <span class="hover-underline-animation"> Comprar </span>
+        <svg
+          id="arrow-horizontal"
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="10"
+          viewBox="0 0 46 16"
+        >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </svg>
+      </button>
+    
+</body>
+</html>
