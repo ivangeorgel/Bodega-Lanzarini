@@ -20,11 +20,13 @@ app.use(cors({
 
 
 // Configuración de Sequelize para conectar a MySQL
-const sequelize = new Sequelize('mi_base', 'root', '', {  // ⚠️ Asegúrate que este usuario y contraseña sean correctos
-    host: 'localhost',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {  
+    host: process.env.DB_HOST,
     dialect: 'mysql',
-    logging: false // Desactiva logs innecesarios en la consola
+    port: process.env.DB_PORT || 3306,  // Por defecto usa el puerto 3306
+    logging: false
 });
+
 
 // Definir el modelo Contacto
 const Contacto = sequelize.define('Contacto', {
