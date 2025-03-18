@@ -1,30 +1,33 @@
-
 // Importación de dependencias
+require('dotenv').config();  // <-- 🔹 Cargar variables de entorno desde .env
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Sequelize, DataTypes } = require('sequelize');
 
-// Crear una instancia de la aplicación Express
 const app = express();
 const port = 3000;
 
 // Middleware
-app.use(bodyParser.json());  // Procesar JSON correctamente
-// app.use(cors());  // Permitir solicitudes desde el frontend
+app.use(bodyParser.json());  
 app.use(cors({
-    origin: '*',  // ⚠ En producción, restringe a tu dominio real
+    origin: '*',  
     methods: ['POST', 'GET'],
     allowedHeaders: ['Content-Type']
 }));
 
-
-// Configuración de Sequelize para conectar a MySQL
-const sequelize = new Sequelize('mi_base', 'root', '', {  // ⚠️ Asegúrate que este usuario y contraseña sean correctos
-    host: 'localhost',
-    dialect: 'mysql',
-    logging: false // Desactiva logs innecesarios en la consola
-});
+// 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
+const sequelize = new Sequelize(
+    process.env.MYSQLDATABASE,   // Nombre de la base de datos
+    process.env.MYSQLUSER,       // Usuario
+    process.env.MYSQLPASSWORD,   // Contraseña
+    {
+        host: process.env.MYSQLHOST, // Host
+        dialect: 'mysql',
+        port: process.env.MYSQLPORT, // Puerto
+        logging: false  // Desactiva logs innecesarios
+    }
+);
 
 // Definir el modelo Contacto
 const Contacto = sequelize.define('Contacto', {
@@ -36,32 +39,30 @@ const Contacto = sequelize.define('Contacto', {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            isEmail: true  // Asegura que sea un email válido
+            isEmail: true  
         }
     },
     mensaje: {
-        type: DataTypes.TEXT,  // Puede ser más largo
+        type: DataTypes.TEXT,
         allowNull: false
     }
 }, {
     tableName: 'contactos',
-    timestamps: true  // Habilita createdAt y updatedAt automáticamente
+    timestamps: true  
 });
 
-// Verificar conexión a la base de datos
+// 🔹 🔹 VERIFICAR CONEXIÓN 🔹 🔹
 sequelize.authenticate()
-    .then(() => console.log('✅ Conexión a MySQL exitosa'))
+    .then(() => console.log('✅ Conexión a MySQL en Railway exitosa'))
     .catch(err => console.error('❌ Error al conectar a MySQL:', err));
 
-
-// Sincronizar el modelo con la base de datos
 sequelize.sync()
     .then(() => console.log('✅ Modelo sincronizado con la base de datos'))
     .catch(err => console.log('❌ Error al sincronizar modelo:', err));
 
 // Ruta para recibir datos del formulario
 app.post('/contacto', async (req, res) => {
-    console.log("📩 Datos recibidos en el servidor:", req.body);  // <-- Verifica los datos
+    console.log("📩 Datos recibidos en el servidor:", req.body);
 
     const { nombre, email, mensaje } = req.body;
 
@@ -79,9 +80,7 @@ app.post('/contacto', async (req, res) => {
     }
 });
 
-
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 });
-
