@@ -1,14 +1,8 @@
-require("dotenv").config();  // Cargar variables de entorno
+require("dotenv").config();  // 🔹 Cargar variables de entorno
 const mysql = require("mysql2");
 
-// Configurar la conexión a MySQL en Railway usando variables de entorno
-const connection = mysql.createConnection({
-    host: process.env.MYSQLHOST,       // 🔹 Usa el host de Railway (NO "mysql.railway.internal")
-    user: process.env.MYSQLUSER,       // 🔹 Usuario de la base de datos
-    password: process.env.MYSQLPASSWORD, // 🔹 Contraseña de la base de datos
-    database: process.env.MYSQLDATABASE, // 🔹 Nombre de la base de datos
-    port: process.env.MYSQLPORT        // 🔹 Puerto de la base de datos
-});
+// Crear la conexión usando MYSQL_URL
+const connection = mysql.createConnection(process.env.MYSQL_URL);
 
 // Conectar a la base de datos
 connection.connect((err) => {
