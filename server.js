@@ -18,17 +18,11 @@ app.use(cors({
 }));
 
 // 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
-const sequelize = new Sequelize(
-    process.env.MYSQLDATABASE,   // Nombre de la base de datos
-    process.env.MYSQLUSER,       // Usuario
-    process.env.MYSQLPASSWORD,   // Contraseña
-    {
-        host: process.env.MYSQLHOST, // Host
-        dialect: 'mysql',
-        port: process.env.MYSQLPORT, // Puerto
-        logging: false  // Desactiva logs innecesarios
-    }
-);
+const sequelize = new Sequelize(process.env.MYSQL_URL, {
+    dialect: 'mysql',
+    logging: false  // Desactiva logs innecesarios
+});
+
 
 // Definir el modelo Contacto
 const Contacto = sequelize.define('Contacto', {
