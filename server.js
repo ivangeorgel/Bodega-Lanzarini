@@ -16,13 +16,17 @@ app.use(cors({
     allowedHeaders: ['Content-Type']
 }));
 
+// Validación de la variable de entorno MYSQL_URL
+const dbUrl = process.env.MYSQL_URL;
+if (!dbUrl) {
+    console.error('❌ Error: La variable de entorno MYSQL_URL no está definida');
+    process.exit(1); // Salir si no se encuentra la variable de entorno
+}
+
 // 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
-const sequelize = new Sequelize(process.env.MYSQL_URL, {
+const sequelize = new Sequelize(dbUrl, {
     dialect: "mysql",
 });
-
-// Elimina la segunda importación de Sequelize para evitar el error
-// const { Sequelize } = require("sequelize");  // Esta línea es innecesaria y causa el error
 
 async function testConnection() {
     try {

@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); 
         
-        const nombre = document.getElementById('Nombre').value.trim();
-        const email = document.getElementById('Email').value.trim();
-        const mensaje = document.getElementById('Mensaje').value.trim();
+        const nombre = document.getElementById('Nombre1').value.trim();
+        const email = document.getElementById('Email1').value.trim();
+        const mensaje = document.getElementById('Mensaje1').value.trim();
 
         console.log("Nombre:", nombre);
         console.log("Email:", email);
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = { nombre, email, mensaje };
 
         try {
-            const response = await fetch("http://localhost:3000/contacto", {
+            const response = await fetch("mysql://root:iqsEeSpjLlxkedkBMBsflGjWhvTYwJFI@mysql.railway.internal:3306/railway", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
