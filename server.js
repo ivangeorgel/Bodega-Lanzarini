@@ -3,7 +3,7 @@ require('dotenv').config();  // 🔹 Solo útil en local
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');  // Importación correcta de Sequelize
 
 const app = express();
 const port = process.env.PORT || 3000; // 🚀 Usar puerto dinámico de Railway
@@ -17,21 +17,12 @@ app.use(cors({
 }));
 
 // 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
-// const sequelize = new Sequelize(
-//     process.env.MYSQL_URL || 
-//     `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`,
-//     {
-//         dialect: 'mysql',
-//         logging: false
-//     }
-// );
-
-const { Sequelize } = require("sequelize");
-require("dotenv").config();
-
 const sequelize = new Sequelize(process.env.MYSQL_URL, {
     dialect: "mysql",
 });
+
+// Elimina la segunda importación de Sequelize para evitar el error
+// const { Sequelize } = require("sequelize");  // Esta línea es innecesaria y causa el error
 
 async function testConnection() {
     try {
@@ -45,7 +36,6 @@ async function testConnection() {
 }
 
 testConnection();
-
 
 // Definir el modelo Contacto
 const Contacto = sequelize.define('Contacto', {
@@ -69,23 +59,10 @@ const Contacto = sequelize.define('Contacto', {
     timestamps: true  
 });
 
-// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-
-// ESTA PARTE YA NO ES NECESARIA
-// 🔹 🔹 VERIFICAR CONEXIÓN 🔹 🔹
-// sequelize.authenticate()
-//     .then(() => console.log('✅ Conexión a MySQL en Railway exitosa'))
-//     .catch(err => console.error('❌ Error al conectar a MySQL:', err));
-// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-
-
-// Sincronizar los modelos con la base de datos 
+// Sincronización del modelo con la base de datos
 sequelize.sync()
     .then(() => console.log('✅ Modelo sincronizado con la base de datos'))
     .catch(err => console.log('❌ Error al sincronizar modelo:', err));
-
-
-
 
 // Ruta para recibir datos del formulario
 app.post('/contacto', async (req, res) => {
