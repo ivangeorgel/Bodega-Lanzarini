@@ -1,5 +1,5 @@
 // Importación de dependencias
-require('dotenv').config();  // <-- 🔹 Cargar variables de entorno desde .env
+require('dotenv').config();  // 🔹 Solo útil en local
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,21 +8,23 @@ const { Sequelize, DataTypes } = require('sequelize');
 const app = express();
 const port = process.env.PORT || 3000; // 🚀 Usar puerto dinámico de Railway
 
-
 // Middleware
-app.use(bodyParser.json());  
+app.use(bodyParser.json());
 app.use(cors({
-    origin: '*',  
+    origin: '*',
     methods: ['POST', 'GET'],
     allowedHeaders: ['Content-Type']
 }));
 
 // 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
-const sequelize = new Sequelize(process.env.MYSQL_URL, {
-    dialect: 'mysql',
-    logging: false  // Desactiva logs innecesarios
-});
-
+const sequelize = new Sequelize(
+    process.env.MYSQL_URL || 
+    `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`,
+    {
+        dialect: 'mysql',
+        logging: false
+    }
+);
 
 // Definir el modelo Contacto
 const Contacto = sequelize.define('Contacto', {
