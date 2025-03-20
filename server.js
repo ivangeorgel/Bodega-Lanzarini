@@ -17,14 +17,35 @@ app.use(cors({
 }));
 
 // 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
-const sequelize = new Sequelize(
-    process.env.MYSQL_URL || 
-    `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`,
-    {
-        dialect: 'mysql',
-        logging: false
+// const sequelize = new Sequelize(
+//     process.env.MYSQL_URL || 
+//     `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`,
+//     {
+//         dialect: 'mysql',
+//         logging: false
+//     }
+// );
+
+const { Sequelize } = require("sequelize");
+require("dotenv").config();
+
+const sequelize = new Sequelize(process.env.MYSQL_URL, {
+    dialect: "mysql",
+});
+
+async function testConnection() {
+    try {
+        await sequelize.authenticate();
+        console.log("✅ Conexión a la base de datos exitosa.");
+    } catch (error) {
+        console.error("❌ Error al conectar a la base de datos:", error);
+    } finally {
+        await sequelize.close();
     }
-);
+}
+
+testConnection();
+
 
 // Definir el modelo Contacto
 const Contacto = sequelize.define('Contacto', {
