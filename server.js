@@ -69,14 +69,23 @@ const Contacto = sequelize.define('Contacto', {
     timestamps: true  
 });
 
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+// ESTA PARTE YA NO ES NECESARIA
+
+
 // 🔹 🔹 VERIFICAR CONEXIÓN 🔹 🔹
-sequelize.authenticate()
-    .then(() => console.log('✅ Conexión a MySQL en Railway exitosa'))
-    .catch(err => console.error('❌ Error al conectar a MySQL:', err));
+// sequelize.authenticate()
+//     .then(() => console.log('✅ Conexión a MySQL en Railway exitosa'))
+//     .catch(err => console.error('❌ Error al conectar a MySQL:', err));
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
 sequelize.sync()
     .then(() => console.log('✅ Modelo sincronizado con la base de datos'))
     .catch(err => console.log('❌ Error al sincronizar modelo:', err));
+
+
+
 
 // Ruta para recibir datos del formulario
 app.post('/contacto', async (req, res) => {
