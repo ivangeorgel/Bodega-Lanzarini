@@ -1,5 +1,5 @@
 // Importación de dependencias
-require('dotenv').config();  // 🔹 Solo útil en local
+require('dotenv').config({ path: './.env' });  // 🔹 Solo útil en local
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -15,6 +15,11 @@ app.use(cors({
     methods: ['POST', 'GET'],
     allowedHeaders: ['Content-Type']
 }));
+
+
+
+// Imprime las variables de entorno para depuración
+console.log("🔍 MYSQL_URL:", process.env.MYSQL_URL);
 
 // Validación de la variable de entorno MYSQL_URL
 const dbUrl = process.env.MYSQL_URL;
@@ -34,9 +39,12 @@ async function testConnection() {
         console.log("✅ Conexión a la base de datos exitosa.");
     } catch (error) {
         console.error("❌ Error al conectar a la base de datos:", error);
-    } finally {
-        await sequelize.close();
-    }
+    } 
+    
+    // ❌ No cerrar la conexión aquí
+    // finally {
+    //     await sequelize.close();
+    // }
 }
 
 testConnection();
