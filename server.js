@@ -19,12 +19,12 @@ app.use(cors({
 
 
 // Imprime las variables de entorno para depuración
-console.log("🔍 MYSQL_URL:", process.env.MYSQL_PUBLIC_URL);
+console.log("🔍 MYSQL_URL:", process.env.MYSQL_URL);
 
 // Validación de la variable de entorno MYSQL_URL
-const dbUrl = process.env.MYSQL_PUBLIC_URL;
+const dbUrl = process.env.MYSQL_URL;
 if (!dbUrl) {
-    console.error('❌ Error: La variable de entorno MYSQL_PUBLIC_URL no está definida');
+    console.error('❌ Error: La variable de entorno MYSQL_URL no está definida');
     process.exit(1); // Salir si no se encuentra la variable de entorno
 }
 
