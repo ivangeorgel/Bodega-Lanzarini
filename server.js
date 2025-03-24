@@ -23,7 +23,7 @@ const connection = mysql.createConnection({
   user: process.env.MYSQLUSER || "root",
   password: process.env.MYSQLPASSWORD || "",
   database: process.env.MYSQLDATABASE || "test",
-  port: process.env.MYSQLPORT || 3306,
+  port: process.env.MYSQLPORT || 33060,
 });
 
 // ✅ Intentar conectar a MySQL
