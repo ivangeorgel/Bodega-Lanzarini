@@ -1,35 +1,29 @@
-// Importación de dependencias
-require("dotenv").config({ path: "./.env" }); // 🔹 Solo útil en local
+require("dotenv").config(); // Cargar variables de entorno
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mysql = require("mysql2");
 
 const app = express();
-const port = process.env.PORT || 3000; // 🚀 Usar puerto dinámico de Railway
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "*",
-    methods: ["POST", "GET"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use(cors());
 
-// Imprime las variables de entorno para depuración
-console.log("🔍 MYSQL_HOST:", process.env.MYSQL_HOST);
-console.log("🔍 MYSQL_USER:", process.env.MYSQL_USER);
-console.log("🔍 MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
+// 🔍 Imprimir variables de entorno (solo para depuración)
+console.log("🔍 MYSQL_HOST:", process.env.MYSQLHOST);
+console.log("🔍 MYSQL_USER:", process.env.MYSQLUSER);
+console.log("🔍 MYSQL_DATABASE:", process.env.MYSQLDATABASE);
+console.log("🔍 MYSQL_PORT:", process.env.MYSQLPORT);
 
-// ✅ Configurar la conexión con MySQL en Railway
+// ✅ Configurar conexión con MySQL en Railway
 const connection = mysql.createConnection({
-  host: process.env.MYSQL_HOST, // Servidor de la base de datos
-  user: process.env.MYSQL_USER, // Usuario de la base de datos
-  password: process.env.MYSQL_PASSWORD, // Contraseña de la base de datos
-  database: process.env.MYSQL_DATABASE, // Nombre de la base de datos
-  port: process.env.MYSQL_PORT || 3306, // Puerto de MySQL (Railway usa 3306)
+  host: process.env.MYSQLHOST || "localhost",
+  user: process.env.MYSQLUSER || "root",
+  password: process.env.MYSQLPASSWORD || "",
+  database: process.env.MYSQLDATABASE || "test",
+  port: process.env.MYSQLPORT || 3306,
 });
 
 // ✅ Intentar conectar a MySQL
@@ -41,30 +35,34 @@ connection.connect((err) => {
   console.log("✅ Conexión exitosa a MySQL en Railway");
 });
 
-// Ruta para recibir datos del formulario
-app.post("/contacto", async (req, res) => {
-  console.log("📩 Datos recibidos en el servidor:", req.body);
+// Ruta de prueba para verificar conexión
+app.get("/", (req, res) => {
+  res.send("Servidor funcionando correctamente 🚀");
+});
 
+// Iniciar servidor
+app.listen(port, () => {
+  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
+});
+
+
+// Modificar server.js para recibir los datos
+// Edita server.js y agrega esta ruta para manejar el formulario:
+
+
+app.post("/enviar-mensaje", (req, res) => {
   const { nombre, email, mensaje } = req.body;
 
   if (!nombre || !email || !mensaje) {
     return res.status(400).json({ error: "Todos los campos son obligatorios" });
   }
 
-  // Insertar datos en MySQL
-  const query = "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
-  
-  connection.query(query, [nombre, email, mensaje], (err, results) => {
+  const sql = "INSERT INTO mensajes (nombre, email, mensaje) VALUES (?, ?, ?)";
+  connection.query(sql, [nombre, email, mensaje], (err, result) => {
     if (err) {
-      console.error("❌ Error al guardar contacto:", err);
-      return res.status(500).json({ error: `Error interno del servidor: ${err.message}` });
+      console.error("❌ Error al guardar mensaje en la base de datos:", err);
+      return res.status(500).json({ error: "Error en el servidor" });
     }
-    console.log("✅ Nuevo contacto guardado:", results);
-    res.status(201).json({ message: "Contacto guardado correctamente" });
+    res.status(200).json({ message: "Mensaje enviado correctamente" });
   });
-});
-
-// Iniciar el servidor
-app.listen(port, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 });

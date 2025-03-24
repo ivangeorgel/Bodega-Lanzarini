@@ -149,11 +149,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = { nombre, email, mensaje };
 
         try {
-            const response = await fetch("mysql://root:iqsEeSpjLlxkedkBMBsflGjWhvTYwJFI@shuttle.proxy.rlwy.net:42838/railway", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            });
+          const response = await fetch("https://bodega-lanzarini-production.up.railway.app", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
+        
 
             const data = await response.json();
             console.log("📩 Respuesta del servidor:", data);
