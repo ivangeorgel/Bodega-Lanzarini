@@ -1,102 +1,70 @@
 // Importación de dependencias
-require('dotenv').config({ path: './.env' });  // 🔹 Solo útil en local
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { Sequelize, DataTypes } = require('sequelize');  // Importación correcta de Sequelize
+require("dotenv").config({ path: "./.env" }); // 🔹 Solo útil en local
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const mysql = require("mysql2");
 
 const app = express();
 const port = process.env.PORT || 3000; // 🚀 Usar puerto dinámico de Railway
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors({
-    origin: '*',
-    methods: ['POST', 'GET'],
-    allowedHeaders: ['Content-Type']
-}));
-
-
+app.use(
+  cors({
+    origin: "*",
+    methods: ["POST", "GET"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // Imprime las variables de entorno para depuración
-console.log("🔍 MYSQL_URL:", process.env.MYSQL_URL);
+console.log("🔍 MYSQL_HOST:", process.env.MYSQL_HOST);
+console.log("🔍 MYSQL_USER:", process.env.MYSQL_USER);
+console.log("🔍 MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
 
-// Validación de la variable de entorno MYSQL_URL
-const dbUrl = process.env.MYSQL_URL;
-if (!dbUrl) {
-    console.error('❌ Error: La variable de entorno MYSQL_URL no está definida');
-    process.exit(1); // Salir si no se encuentra la variable de entorno
-}
-
-// 🔹 🔹 CONEXIÓN A MYSQL EN RAILWAY 🔹 🔹
-const sequelize = new Sequelize(dbUrl, {
-    dialect: "mysql",
+// ✅ Configurar la conexión con MySQL en Railway
+const connection = mysql.createConnection({
+  host: process.env.MYSQL_HOST, // Servidor de la base de datos
+  user: process.env.MYSQL_USER, // Usuario de la base de datos
+  password: process.env.MYSQL_PASSWORD, // Contraseña de la base de datos
+  database: process.env.MYSQL_DATABASE, // Nombre de la base de datos
+  port: process.env.MYSQL_PORT || 3306, // Puerto de MySQL (Railway usa 3306)
 });
 
-async function testConnection() {
-    try {
-        await sequelize.authenticate();
-        console.log("✅ Conexión a la base de datos exitosa.");
-    } catch (error) {
-        console.error("❌ Error al conectar a la base de datos:", error);
-    } 
-    
-    // ❌ No cerrar la conexión aquí
-    // finally {
-    //     await sequelize.close();
-    // }
-}
-
-testConnection();
-
-// Definir el modelo Contacto
-const Contacto = sequelize.define('Contacto', {
-    nombre: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true  
-        }
-    },
-    mensaje: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    }
-}, {
-    tableName: 'contactos',
-    timestamps: true  
+// ✅ Intentar conectar a MySQL
+connection.connect((err) => {
+  if (err) {
+    console.error("❌ Error al conectar a MySQL:", err.message);
+    return;
+  }
+  console.log("✅ Conexión exitosa a MySQL en Railway");
 });
-
-// Sincronización del modelo con la base de datos
-sequelize.sync()
-    .then(() => console.log('✅ Modelo sincronizado con la base de datos'))
-    .catch(err => console.log('❌ Error al sincronizar modelo:', err));
 
 // Ruta para recibir datos del formulario
-app.post('/contacto', async (req, res) => {
-    console.log("📩 Datos recibidos en el servidor:", req.body);
+app.post("/contacto", async (req, res) => {
+  console.log("📩 Datos recibidos en el servidor:", req.body);
 
-    const { nombre, email, mensaje } = req.body;
+  const { nombre, email, mensaje } = req.body;
 
-    if (!nombre || !email || !mensaje) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+  if (!nombre || !email || !mensaje) {
+    return res.status(400).json({ error: "Todos los campos son obligatorios" });
+  }
+
+  // Insertar datos en MySQL
+  const query = "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
+  
+  connection.query(query, [nombre, email, mensaje], (err, results) => {
+    if (err) {
+      console.error("❌ Error al guardar contacto:", err);
+      return res.status(500).json({ error: `Error interno del servidor: ${err.message}` });
     }
-
-    try {
-        const nuevoContacto = await Contacto.create({ nombre, email, mensaje });
-        console.log('✅ Nuevo contacto guardado:', nuevoContacto);
-        res.status(201).json({ message: 'Contacto guardado correctamente' });
-    } catch (err) {
-        console.error('❌ Error al guardar contacto:', err);
-        res.status(500).json({ error: `Error interno del servidor: ${err.message}` });
-    }
+    console.log("✅ Nuevo contacto guardado:", results);
+    res.status(201).json({ message: "Contacto guardado correctamente" });
+  });
 });
 
 // Iniciar el servidor
 app.listen(port, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
+  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 });
