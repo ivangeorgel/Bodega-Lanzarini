@@ -16,9 +16,10 @@ console.log("🔍 MYSQLHOST:", process.env.MYSQLHOST);
 console.log("🔍 MYSQLUSER:", process.env.MYSQLUSER);
 console.log("🔍 MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
 console.log("🔍 MYSQLPORT:", process.env.MYSQLPORT);
+console.log("🔍 MYSQL_URL:", process.env.MYSQL_URL);
 
-// ✅ Configurar conexión con MySQL en Railway
-const connection = mysql.createConnection({
+// Crear conexión usando MYSQL_URL si está disponible
+const connection = mysql.createConnection(process.env.MYSQL_URL || {
   host: process.env.MYSQLHOST || "localhost",
   user: process.env.MYSQLUSER || "root",
   password: process.env.MYSQLPASSWORD || "",
