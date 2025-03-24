@@ -12,18 +12,18 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // 🔍 Imprimir variables de entorno (solo para depuración)
-console.log("🔍 MYSQL_HOST:", process.env.MYSQLHOST);
-console.log("🔍 MYSQL_USER:", process.env.MYSQLUSER);
-console.log("🔍 MYSQL_DATABASE:", process.env.MYSQLDATABASE);
-console.log("🔍 MYSQL_PORT:", process.env.MYSQLPORT);
+console.log("🔍 MYSQLHOST:", process.env.MYSQLHOST);
+console.log("🔍 MYSQLUSER:", process.env.MYSQLUSER);
+console.log("🔍 MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
+console.log("🔍 MYSQLPORT:", process.env.MYSQLPORT);
 
 // ✅ Configurar conexión con MySQL en Railway
 const connection = mysql.createConnection({
   host: process.env.MYSQLHOST || "localhost",
   user: process.env.MYSQLUSER || "root",
   password: process.env.MYSQLPASSWORD || "",
-  database: process.env.MYSQLDATABASE || "test",
-  port: process.env.MYSQLPORT || 33060,
+  database: process.env.MYSQL_DATABASE || "test",
+  port: process.env.MYSQLPORT || 3306,
 });
 
 // ✅ Intentar conectar a MySQL
