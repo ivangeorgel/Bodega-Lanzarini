@@ -10,23 +10,16 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
-// 🔍 Imprimir variables de entorno (solo para depuración)
-console.log("🔍 MYSQLHOST:", process.env.MYSQLHOST);
-console.log("🔍 MYSQLUSER:", process.env.MYSQLUSER);
-console.log("🔍 MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
-console.log("🔍 MYSQLPORT:", process.env.MYSQLPORT);
-console.log("🔍 MYSQL_URL:", process.env.MYSQL_URL);
-
-// Crear conexión usando MYSQL_URL si está disponible
-const connection = mysql.createConnection(process.env.MYSQL_URL || {
-  host: process.env.MYSQLHOST || "localhost",
-  user: process.env.MYSQLUSER || "root",
-  password: process.env.MYSQLPASSWORD || "",
-  database: process.env.MYSQL_DATABASE || "test",
-  port: process.env.MYSQLPORT || 3306,
+// ✅ Conexión a la base de datos
+const connection = mysql.createConnection({
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQL_DATABASE,
+  port: process.env.MYSQLPORT,
 });
-// 
-// ✅ Intentar conectar a MySQL
+
+// 🔧 Intentar conectar a MySQL
 connection.connect((err) => {
   if (err) {
     console.error("❌ Error al conectar a MySQL:", err.message);
@@ -35,21 +28,12 @@ connection.connect((err) => {
   console.log("✅ Conexión exitosa a MySQL en Railway");
 });
 
-// Ruta de prueba para verificar conexión
+// 🌐 Ruta de prueba
 app.get("/", (req, res) => {
   res.send("Servidor funcionando correctamente 🚀");
 });
 
-// Iniciar servidor
-app.listen(port, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
-});
-
-
-// Modificar server.js para recibir los datos
-// Edita server.js y agrega esta ruta para manejar el formulario:
-
-
+// ✉️ Ruta para recibir mensajes del formulario
 app.post("/enviar-mensaje", (req, res) => {
   const { nombre, email, mensaje } = req.body;
 
@@ -65,4 +49,9 @@ app.post("/enviar-mensaje", (req, res) => {
     }
     res.status(200).json({ message: "Mensaje enviado correctamente" });
   });
+});
+
+// 🚀 Iniciar servidor
+app.listen(port, () => {
+  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 });
