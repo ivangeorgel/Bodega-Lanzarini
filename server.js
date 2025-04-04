@@ -15,13 +15,13 @@ const connection = mysql.createConnection({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
+  database: process.env.MYSQL_DATABASE,
   port: process.env.MYSQLPORT,
 });
 console.log("🔍 Verificando variables de entorno...");
 console.log("MYSQLHOST:", process.env.MYSQLHOST);
 console.log("MYSQLUSER:", process.env.MYSQLUSER);
-console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE);
+console.log("MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
 console.log("MYSQLPASSWORD:", process.env.MYSQLPASSWORD);
 console.log("MYSQLPORT:", process.env.MYSQLPORT);
 
