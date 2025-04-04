@@ -1,8 +1,3 @@
-# Esto le dice a Git que ignore:
-
-# La carpeta node_modules/.
-# El archivo .env (si lo tienes).
-# La carpeta .vscode/ (que crearemos en el siguiente paso).
 
 node_modules/
 .env

@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = { nombre, email, mensaje };
 
         try {
-          const response = await fetch("https://bodega-lanzarini-production.up.railway.app", {
+          const response = await fetch("https://bodega-lanzarini-production.up.railway.app/enviar-mensaje", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
