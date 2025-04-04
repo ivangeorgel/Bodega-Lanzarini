@@ -15,8 +15,9 @@ const connection = mysql.createConnection({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQL_DATABASE,
+  database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT,
+  url: process.env.MYSQL_URL,
 });
 
 // 🔧 Intentar conectar a MySQL
@@ -55,3 +56,12 @@ app.post("/enviar-mensaje", (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 });
+
+// MYSQL_URL=mysql://${{MYSQLUSER}}:${{MYSQL_ROOT_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:3306/${{MYSQL_DATABASE}}
+// # MYSQL_PUBLIC_URL=mysql://${{MYSQLUSER}}:${{MYSQL_ROOT_PASSWORD}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}/${{MYSQL_DATABASE}}
+// MYSQLUSER=root
+// MYSQLHOST=${{RAILWAY_PRIVATE_DOMAIN}}
+// MYSQL_DATABASE=Bodega-Lanzarini
+// MYSQLPASSWORD=${{MYSQL_ROOT_PASSWORD}}
+// MYSQLPORT=3306
+// # MYSQL_ROOT_PASSWORD=iqsEeSpjLlxkedkBMBsflGjWhvTYwJFI
