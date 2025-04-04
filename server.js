@@ -1,44 +1,47 @@
 require('dotenv').config();
 
-// 🌍 Imprimir variables de entorno para depuración
-console.log("📌 Verificando variables de entorno:");
-console.log("Host:", process.env.MYSQLHOST);
-console.log("User:", process.env.MYSQLUSER);
-console.log("Password:", process.env.MYSQLPASSWORD ? "✅ Oculta por seguridad" : "❌ No definida");
-console.log("Database:", process.env.MYSQL_DATABASE);
-console.log("Port:", process.env.MYSQLPORT);
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mysql = require("mysql2");
 
 const app = express();
-const port = process.env.PORT || 3001; // Puerto del servidor
+const port = process.env.PORT || 3001;
 
 // ✅ Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-// ✅ Configurar conexión a la base de datos
-const connection = mysql.createConnection({
-  host: process.env.MYSQLHOST || 'shuttle.proxy.rlwy.net', // Host de Railway
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  port: process.env.MYSQLPORT || 42838, // Puerto externo de Railway
-});
+// ✅ Cargar variables de entorno con fallback
+const dbConfig = {
+  host: process.env.MYSQLHOST || process.env.HOST || 'localhost',
+  user: process.env.MYSQLUSER || process.env.USER || 'root',
+  password: process.env.MYSQLPASSWORD || process.env.PASSWORD || '',
+  database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'nombre_base',
+  port: process.env.MYSQLPORT || process.env.DBPORT || 3306
+};
 
-// 🔧 Intentar conectar a MySQL
+// 🌍 Mostrar variables de entorno (sin exponer la contraseña)
+console.log("📌 Verificando variables de entorno:");
+console.log("Host:", dbConfig.host);
+console.log("User:", dbConfig.user);
+console.log("Password:", dbConfig.password ? "✅ Oculta por seguridad" : "❌ No definida");
+console.log("Database:", dbConfig.database);
+console.log("Port:", dbConfig.port);
+
+// ✅ Crear conexión MySQL
+const connection = mysql.createConnection(dbConfig);
+
+// 🔧 Intentar conectar
 connection.connect((err) => {
   if (err) {
     console.error("❌ Error al conectar a MySQL:", err.code, err.message);
     return;
   }
-  console.log("✅ Conexión exitosa a MySQL en Railway 🚀");
+  console.log("✅ Conexión exitosa a MySQL 🚀");
 });
 
-// 🌍 Ruta de prueba para verificar que el servidor funciona
+// 🌍 Ruta de prueba
 app.get("/", (req, res) => {
   res.send("Servidor funcionando correctamente 🚀");
 });
@@ -61,7 +64,7 @@ app.post("/enviar-mensaje", (req, res) => {
   });
 });
 
-// 🛑 Cerrar la conexión cuando el servidor se apaga
+// 🛑 Cerrar conexión cuando el servidor se apaga
 process.on("exit", () => {
   console.log("🛑 Cerrando conexión a MySQL...");
   connection.end();
