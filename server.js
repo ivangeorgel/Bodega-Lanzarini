@@ -6,7 +6,7 @@ const cors = require("cors");
 const mysql = require("mysql2");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 // ✅ Middleware
 app.use(bodyParser.json());
@@ -69,6 +69,24 @@ process.on("exit", () => {
   console.log("🛑 Cerrando conexión a MySQL...");
   connection.end();
 });
+
+
+
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+app.get("/probar-bd", (req, res) => {
+  connection.query("SELECT 1 + 1 AS resultado", (err, results) => {
+    if (err) {
+      console.error("❌ Error al probar conexión a la BD:", err.message);
+      return res.status(500).json({ error: "Error al conectar con la base de datos" });
+    }
+    res.status(200).json({ message: "Conexión a la base de datos exitosa 🚀", resultado: results[0].resultado });
+  });
+});
+
+
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
 
 // 🚀 Iniciar servidor
 app.listen(port, () => {
