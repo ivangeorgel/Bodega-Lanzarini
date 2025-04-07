@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); // para leer variables del .env
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -18,9 +18,7 @@ const dbConfig = {
   user: process.env.MYSQLUSER || process.env.USER || 'root',
   password: process.env.MYSQLPASSWORD || process.env.PASSWORD || '',
   database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'nombre_base',
-  // port: process.env.MYSQLPORT || process.env.DBPORT || 3306
-  port: Number(process.env.MYSQLPORT || process.env.DBPORT || 3306)
-
+  port: process.env.MYSQLPORT || process.env.DBPORT || 3306
 };
 
 // 🌍 Mostrar variables de entorno (sin exponer la contraseña)
