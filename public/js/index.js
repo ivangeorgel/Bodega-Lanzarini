@@ -76,41 +76,7 @@ function scaleUp(element) {
 function scaleDown(element) {
     element.classList.remove('scale-up');
 }
-//  Validaciones del formulario
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        
-        const nombre = document.getElementById('Nombre1').value.trim();
-        const email = document.getElementById('Email1').value.trim();
-        const mensaje = document.getElementById('Mensaje1').value.trim();
 
-        console.log("Nombre:", nombre);
-        console.log("Email:", email);
-        console.log("Mensaje:", mensaje);
-
-        if (!nombre) {
-            alert('Por favor, ingresa tu nombre.');
-            return;
-        }
-
-        if (!email) {
-            alert('Por favor, ingresa tu email.');
-            return;
-        }
-
-        if (!mensaje) {
-            alert('Por favor, ingresa tu mensaje.');
-            return;
-        }
-
-        form.reset();
-    });
-  }
-});
-
-// Peticiones del formulario al backend, esto va a enviar datos al servidor usando fetch
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
@@ -139,8 +105,18 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Mensaje capturado:", `"${mensaje}"`);
 
         // Validación básica
-        if (!nombre || !email || !mensaje) {
-            alert("⚠️ Todos los campos son obligatorios.");
+        if (!nombre) {
+            alert('Por favor, ingresa tu nombre.');
+            return;
+        }
+
+        if (!email) {
+            alert('Por favor, ingresa tu email.');
+            return;
+        }
+
+        if (!mensaje) {
+            alert('Por favor, ingresa tu mensaje.');
             return;
         }
 
@@ -148,13 +124,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = { nombre, email, mensaje };
 
         try {
-          const response = await fetch("https://bodega-lanzarini-production.up.railway.app/enviar-mensaje", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-        });
+            const response = await fetch("https://bodega-lanzarini-production.up.railway.app/enviar-mensaje", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
         
-
             const data = await response.json();
             console.log("📩 Respuesta del servidor:", data);
 
@@ -170,4 +145,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
   }
+});
 });

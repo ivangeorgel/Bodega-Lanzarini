@@ -54,7 +54,7 @@ app.post("/enviar-mensaje", (req, res) => {
     return res.status(400).json({ error: "Todos los campos son obligatorios" });
   }
 
-  const sql = "INSERT INTO mensajes (nombre, email, mensaje) VALUES (?, ?, ?)";
+  const sql = "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
   connection.query(sql, [nombre, email, mensaje], (err, result) => {
     if (err) {
       console.error("❌ Error al guardar mensaje en la base de datos:", err.message);
@@ -91,4 +91,16 @@ app.get("/probar-bd", (req, res) => {
 // 🚀 Iniciar servidor
 app.listen(port, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
+});
+
+
+// Servir archivos estáticos desde la carpeta 'public'
+
+app.use(express.static('public'));
+
+
+// Implementa una ruta para probar la conexión del formulario:
+// Para facilitar la depuración, añade una ruta de prueba para tu formulario:
+app.get("/probar-formulario", (req, res) => {
+  res.status(200).json({ message: "La ruta del formulario está funcionando correctamente" });
 });
