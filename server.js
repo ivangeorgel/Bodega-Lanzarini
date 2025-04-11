@@ -13,6 +13,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓Con este frafmento pude hacer andar el servidor▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
 // ✅ Analizar el host y el puerto si están combinados
 let dbHost = process.env.MYSQLHOST || process.env.HOST || 'localhost';
 let dbPort = process.env.MYSQLPORT || process.env.DBPORT || 3306;
@@ -34,6 +36,8 @@ const dbConfig = {
   port: dbPort
 };
 
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
 
 
 // ✅ Cargar variables de entorno con fallback
@@ -53,7 +57,10 @@ console.log("Password:", dbConfig.password ? "✅ Oculta por seguridad" : "❌ N
 console.log("Database:", dbConfig.database);
 console.log("Port:", dbConfig.port);
 
+
+
 // ✅ Crear conexión MySQL
+console.log("⚙️ Configuración de la base de datos:", dbConfig);
 const connection = mysql.createConnection(dbConfig);
 
 // 🔧 Intentar conectar

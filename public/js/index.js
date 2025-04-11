@@ -78,6 +78,10 @@ function scaleDown(element) {
 }
 
 
+
+// Validaciones del formulario
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
 
