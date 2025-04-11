@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-
 // ✅ Analizar el host y el puerto si están combinados
 let dbHost = process.env.MYSQLHOST || process.env.HOST || 'localhost';
 let dbPort = process.env.MYSQLPORT || process.env.DBPORT || 3306;
@@ -31,9 +30,10 @@ const dbConfig = {
   host: dbHost,
   user: process.env.MYSQLUSER || process.env.USER || 'root',
   password: process.env.MYSQLPASSWORD || process.env.PASSWORD || '',
-  database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'bodega_lanzarini',
+  database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'nombre_base',
   port: dbPort
 };
+
 
 
 // ✅ Cargar variables de entorno con fallback
