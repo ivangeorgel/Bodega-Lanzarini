@@ -12,14 +12,38 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
-// ✅ Cargar variables de entorno con fallback
+
+
+// ✅ Analizar el host y el puerto si están combinados
+let dbHost = process.env.MYSQLHOST || process.env.HOST || 'localhost';
+let dbPort = process.env.MYSQLPORT || process.env.DBPORT || 3306;
+
+// Verificar si el host incluye el puerto (formato: host:port)
+if (dbHost.includes(':')) {
+  const parts = dbHost.split(':');
+  dbHost = parts[0];
+  dbPort = parseInt(parts[1]);
+  console.log("🔄 Host y puerto separados:", dbHost, dbPort);
+}
+
+// Actualizar la configuración
 const dbConfig = {
-  host: process.env.MYSQLHOST || process.env.HOST || 'localhost',
+  host: dbHost,
   user: process.env.MYSQLUSER || process.env.USER || 'root',
   password: process.env.MYSQLPASSWORD || process.env.PASSWORD || '',
-  database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'nombre_base',
-  port: process.env.MYSQLPORT || process.env.DBPORT || 3306
+  database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'bodega_lanzarini',
+  port: dbPort
 };
+
+
+// ✅ Cargar variables de entorno con fallback
+// const dbConfig = {
+//   host: process.env.MYSQLHOST || process.env.HOST || 'localhost',
+//   user: process.env.MYSQLUSER || process.env.USER || 'root',
+//   password: process.env.MYSQLPASSWORD || process.env.PASSWORD || '',
+//   database: process.env.MYSQL_DATABASE || process.env.DATABASE || 'nombre_base',
+//   port: process.env.MYSQLPORT || process.env.DBPORT || 3306
+// };
 
 // 🌍 Mostrar variables de entorno (sin exponer la contraseña)
 console.log("📌 Verificando variables de entorno:");
